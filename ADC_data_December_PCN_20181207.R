@@ -83,7 +83,8 @@ data_t[is.na(start_date_1)|is.na(Start_year_meas), ':=' (Start_year_meas = Meas_
 
 
 # Tower: time invariant data
-siteinfo_t <- as.data.table(fread(file="CO2flux_ADC_Synthesis_Metadata_TOWER_20181207_siteInfo.csv",
+# read updated site file from 26 Nov 2019: updated coordinates
+siteinfo_t <- as.data.table(fread(file="CO2flux_ADC_Synthesis_Metadata_TOWER_20191126_siteInfo.csv",
                                        sep=",", header=TRUE,skip=1,
                                        na.strings = na.strings.data))
 
@@ -137,6 +138,7 @@ all[GPP_gC_m2>0, GPP_gC_m2 := GPP_gC_m2*-1]
 # write.table(all_t, file = "CO2flux_ADC_Synthesis_alldata_TOWER_v1.csv", row.names=FALSE, sep=",", dec=".")
 
 # use 26 Nov 2019 data to make v2
+# write.table(all_t, file = "CO2flux_ADC_Synthesis_alldata_TOWER_v2.csv", row.names=FALSE, sep=",", dec=".")
 
 
 #################################
