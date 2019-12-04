@@ -55,7 +55,7 @@ setwd('/Users/memauritz/Desktop/SchuurLab/NACP/ADC_DataAggregation_December/R')
 na.strings.data <- c("NA","NaN","","missing","?","-","no aggregate data")
 
 # Tower: time varying data: use fread which gets rid of so many issues from read.table
-data_t <- as.data.table(fread(file="CO2flux_ADC_Synthesis_Metadata_TOWER_20181207_timeData.csv",
+data_t <- as.data.table(fread(file="CO2flux_ADC_Synthesis_Metadata_TOWER_20191204_timeData.csv",
                                    sep=",", header=TRUE, skip=1,
                                    na.strings=na.strings.data))
 
@@ -84,7 +84,7 @@ data_t[is.na(start_date_1)|is.na(Start_year_meas), ':=' (Start_year_meas = Meas_
 
 # Tower: time invariant data
 # read updated site file from 26 Nov 2019: updated coordinates
-siteinfo_t <- as.data.table(fread(file="CO2flux_ADC_Synthesis_Metadata_TOWER_20191126_siteInfo.csv",
+siteinfo_t <- as.data.table(fread(file="CO2flux_ADC_Synthesis_Metadata_TOWER_20191204_siteInfo.csv",
                                        sep=",", header=TRUE,skip=1,
                                        na.strings = na.strings.data))
 
